@@ -64,7 +64,7 @@ group :staging, :production do
 end
 
 gem 'high_voltage', "~> 3.0"
-gem 'bourbon', '~> 5.0'
+gem 'bourbon', '5.0.0.beta.8'
 gem 'neat', '~> 2.1'
 gem 'refills', "~> 0.2", group: [:development, :test]
 gem 'foundation-rails', "~> 5.4"
