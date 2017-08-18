@@ -1,0 +1,11 @@
+.container
+  table
+    thead
+      tr
+        th Attr.
+        th Value
+    tbody
+      - @document.attributes.each do |key, val|
+        tr
+          td = key
+          td = val

@@ -8,8 +8,9 @@
         li
           = link_to 'Login', new_user_session_path
       - else
+        li = link_to 'Documents', documents_path
         li
-          = link_to 'Logout', destroy_user_session_path,
+          = link_to "#{current_user.email} (logout)", destroy_user_session_path,
             method: :delete
 
   .top-bar-right

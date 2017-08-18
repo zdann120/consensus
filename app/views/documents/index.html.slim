@@ -1,0 +1,19 @@
+.container
+  h1 My Documents
+  table
+    thead
+      tr
+        th Title
+        th Description
+        th Created at
+        th[colspan="3"] Actions
+    tbody
+      - @documents.each do |document|
+        tr
+          td = document.title
+          td = truncate(document.description)
+          td = document.created_at.strftime('%d-%b-%Y %I:%M%p')
+          td = link_to 'Show', document
+          td = link_to 'Edit', [:edit, document]
+          td = link_to 'Destroy', document, method: :delete
+  = link_to 'New Document', [:new, :document], class: 'button'

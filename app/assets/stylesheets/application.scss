@@ -5,3 +5,17 @@
 //@import "bourbon";
 //@import "refills/flashes";
 @import "foundation_and_overrides";
+
+.container {
+  @include grid-row();
+}
+
+.flash-notice {
+  @extend .callout;
+  @extend .primary;
+}
+
+.flash-alert {
+  @extend .callout;
+  @extend .warning;
+}
