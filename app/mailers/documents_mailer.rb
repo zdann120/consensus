@@ -8,7 +8,8 @@ class DocumentsMailer < ApplicationMailer
   def respondent_added(respondent)
     @respondent = respondent
     mail to: @respondent.email,
-      subject: "Approval requested for #{@respondent.document.file}"
+      subject: "Approval requested for #{@respondent.document.file}",
+      from: 'doc-approve-no-reply@zdnenterprises.com'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
