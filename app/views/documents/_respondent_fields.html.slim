@@ -1,0 +1,10 @@
+.nested-fields
+  .row
+    .small-9.columns
+      = f.input :name
+      = f.input :email
+
+    .small-3.columns
+      - unless @document.persisted?
+        = link_to_remove_association "remove", f, class: 'button alert'
+  hr

@@ -70,3 +70,6 @@ gem 'pundit', "~> 1.1"
 gem 'devise', "~> 4.3"
 gem 'devise_invitable', "~> 1.7"
 gem 'money-rails', "~> 1.9"
+gem 'aasm'
+gem 'cocoon'
+gem 'carrierwave'

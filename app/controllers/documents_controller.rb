@@ -33,10 +33,19 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def destroy
+    if @document.destroy
+      redirect_to documents_url, notice: 'Document destroyed!'
+    else
+      render :show
+    end
+  end
+
   private
 
   def document_params
-    params.require(:document).permit(:title, :description)
+    params.require(:document).permit(:title, :description, :file,
+                                    respondents_attributes: [:id, :name, :email, :_destroy])
   end
 
   def find_document

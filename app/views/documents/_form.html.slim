@@ -1,4 +1,14 @@
 = simple_form_for @document do |f|
   = f.input :title
   = f.input :description
+  = f.input :file
+  hr
+  - unless @document.persisted?
+    h2 Respondents
+    #respondents
+      = f.simple_fields_for :respondents do |resp|
+        = render 'respondent_fields', f: resp
+      .links
+        = link_to_add_association 'add respondent', f, :respondents,
+          class: 'button success'
   = f.submit class: 'button'

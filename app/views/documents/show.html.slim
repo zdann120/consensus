@@ -1,11 +1,34 @@
 .container
+  h1 = @document.title
+  .row
+    .small-9.columns
+      table
+        tr
+          th Title
+          td = @document.title
+        tr
+          th Description
+          td = @document.description
+        tr
+          th Uploaded by
+          td = @document.user.email
+    .small-3.columns
+      = link_to 'Download File', '#', class: 'button large expanded'
+      //hr
+      = link_to 'Edit', [:edit, @document], class: 'button warning expanded'
+      = link_to 'Delete', @document, class: 'button alert expanded', 
+        method: :delete, data: { confirm: 'Are you sure?' }
+  h2 Respondents
   table
     thead
       tr
-        th Attr.
-        th Value
+        th Name
+        th Email
+        th Status
     tbody
-      - @document.attributes.each do |key, val|
+      - @document.respondents.each do |r|
         tr
-          td = key
-          td = val
+          td = r.name
+          td = r.email
+          td = r.status
+  = link_to 'Add Respondent', [:new, @document, :respondent], class: 'button'
