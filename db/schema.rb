@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819004607) do
+ActiveRecord::Schema.define(version: 20170819010342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 20170819004607) do
     t.string "email", null: false
     t.bigint "document_id"
     t.integer "status", default: 0, null: false
-    t.boolean "approved", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "access_key"
+    t.text "decision_comments"
+    t.index ["access_key"], name: "index_respondents_on_access_key", unique: true
     t.index ["document_id"], name: "index_respondents_on_document_id"
   end
 

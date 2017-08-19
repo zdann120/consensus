@@ -5,6 +5,8 @@ class Respondent < ApplicationRecord
   validates :name, :email, presence: true
   validates :email, uniqueness: { scope: :document_id }
 
+  has_secure_token :access_key
+
   enum status: {
     pending: 0,
     viewed: 1,

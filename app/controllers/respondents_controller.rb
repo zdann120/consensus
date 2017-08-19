@@ -8,6 +8,7 @@ class RespondentsController < ApplicationController
   def create
     @respondent = @document.respondents.new(respondent_params)
     if @respondent.save
+      DocumentsMailer.respondent_added(@respondent).deliver_now
       redirect_to @document, notice: 'Success!'
     else
       render :new

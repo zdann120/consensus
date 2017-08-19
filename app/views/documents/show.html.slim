@@ -13,7 +13,7 @@
           th Uploaded by
           td = @document.user.email
     .small-3.columns
-      = link_to 'Download File', '#', class: 'button large expanded'
+      = link_to 'Download File', @document.file.url, class: 'button large expanded'
       //hr
       = link_to 'Edit', [:edit, @document], class: 'button warning expanded'
       = link_to 'Delete', @document, class: 'button alert expanded', 

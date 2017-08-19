@@ -1,0 +1,9 @@
+| Hello #{@respondent.name},
+= "\n"
+| #{@respondent.document.user.email} has requested that your approve/deny a file.
+= "\n"
+| You will be able to provide an explanation along with your decision if you choose.
+= "\n"
+| Please visit the following URL:
+= "\n"
+| #{response_document_url(@respondent.access_key)}

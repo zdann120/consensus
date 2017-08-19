@@ -1,0 +1,10 @@
+.container
+  h3 Welcome, #{@respondent.name}!
+  p <strong>#{@document.user.email}</strong> is requesting your approval for the file below:
+
+  = link_to 'View File', @document.file.url, class: 'button'
+
+  - unless @respondent.approved? || @respondent.denied?
+    = render 'form'
+  - else
+    p Your decision of <strong>#{@respondent.status.upcase}</strong> has been recorded.
